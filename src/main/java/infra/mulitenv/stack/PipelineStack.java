@@ -24,7 +24,6 @@ public class PipelineStack extends Stack {
 //                .selfMutation(true)
                 .build();
 
-
         Environment devEnvironment = Environment.builder()
                 .account("808354265930")
                 .region("us-east-1")
