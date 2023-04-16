@@ -18,7 +18,7 @@ public class PipelineStack extends Stack {
                 .pipelineName("MultiEnvPipeline")
                 .synth(new ShellStep("Synth", ShellStepProps.builder()
                         .input(CodePipelineSource.gitHub("awais-join/multenv-cdk-app", "master"))
-                        .commands(Arrays.asList("cdk synth"))
+                        .commands(Arrays.asList("npm ci", "npm run build", "npx cdk synth"))
                         .build())
                 )
 //                .selfMutation(true)
