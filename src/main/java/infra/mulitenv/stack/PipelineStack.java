@@ -16,15 +16,15 @@ public class PipelineStack extends Stack {
         CodePipeline pipeline = CodePipeline.Builder.create(scope, "Pipeline")
                 .pipelineName("MultiEnvPipeline")
                 .synth(new ShellStep("Synth", ShellStepProps.builder()
-                        .input(CodePipelineSource.gitHub("awais-join/multi-env-cdk-demo", "master"))
+                        .input(CodePipelineSource.gitHub("awais-join/multenv-cdk-app", "master"))
                         .commands(Arrays.asList("cdk synth"))
                         .build())
                 )
-                .selfMutation(true)
+//                .selfMutation(true)
                 .build();
 
-        pipeline.addStage(new PipelineAppStage(this, "DEV", StageProps.builder()
-                .env(Environment.builder().account("808354265930").region("us-east-1").build())
-                .build()));
+//        pipeline.addStage(new PipelineAppStage(this, "DEV", StageProps.builder()
+//                .env(Environment.builder().account("808354265930").region("us-east-1").build())
+//                .build()));
     }
 }
