@@ -1,0 +1,730 @@
+{
+ "Resources": {
+  "payoutsvpcE48F4DA6": {
+   "Type": "AWS::EC2::VPC",
+   "Properties": {
+    "CidrBlock": "10.0.0.0/16",
+    "EnableDnsHostnames": true,
+    "EnableDnsSupport": true,
+    "InstanceTenancy": "default",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/Resource"
+   }
+  },
+  "payoutsvpcPublicSubnet1SubnetE75E46D3": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "AvailabilityZone": "us-east-1a",
+    "CidrBlock": "10.0.0.0/19",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet1/Subnet"
+   }
+  },
+  "payoutsvpcPublicSubnet1RouteTable3D4793C1": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet1/RouteTable"
+   }
+  },
+  "payoutsvpcPublicSubnet1RouteTableAssociationB3ADC8AB": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPublicSubnet1RouteTable3D4793C1"
+    },
+    "SubnetId": {
+     "Ref": "payoutsvpcPublicSubnet1SubnetE75E46D3"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet1/RouteTableAssociation"
+   }
+  },
+  "payoutsvpcPublicSubnet1DefaultRoute6BB0DFC8": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPublicSubnet1RouteTable3D4793C1"
+    },
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "payoutsvpcIGW7574D167"
+    }
+   },
+   "DependsOn": [
+    "payoutsvpcVPCGW42875521"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet1/DefaultRoute"
+   }
+  },
+  "payoutsvpcPublicSubnet1EIPB043CD83": {
+   "Type": "AWS::EC2::EIP",
+   "Properties": {
+    "Domain": "vpc",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet1/EIP"
+   }
+  },
+  "payoutsvpcPublicSubnet1NATGatewayAE76B080": {
+   "Type": "AWS::EC2::NatGateway",
+   "Properties": {
+    "SubnetId": {
+     "Ref": "payoutsvpcPublicSubnet1SubnetE75E46D3"
+    },
+    "AllocationId": {
+     "Fn::GetAtt": [
+      "payoutsvpcPublicSubnet1EIPB043CD83",
+      "AllocationId"
+     ]
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet1"
+     }
+    ]
+   },
+   "DependsOn": [
+    "payoutsvpcPublicSubnet1DefaultRoute6BB0DFC8",
+    "payoutsvpcPublicSubnet1RouteTableAssociationB3ADC8AB"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet1/NATGateway"
+   }
+  },
+  "payoutsvpcPublicSubnet2Subnet53CA5400": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "AvailabilityZone": "us-east-1b",
+    "CidrBlock": "10.0.32.0/19",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet2"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet2/Subnet"
+   }
+  },
+  "payoutsvpcPublicSubnet2RouteTable403BF239": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet2"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet2/RouteTable"
+   }
+  },
+  "payoutsvpcPublicSubnet2RouteTableAssociation3E427A03": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPublicSubnet2RouteTable403BF239"
+    },
+    "SubnetId": {
+     "Ref": "payoutsvpcPublicSubnet2Subnet53CA5400"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet2/RouteTableAssociation"
+   }
+  },
+  "payoutsvpcPublicSubnet2DefaultRouteD1190078": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPublicSubnet2RouteTable403BF239"
+    },
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "payoutsvpcIGW7574D167"
+    }
+   },
+   "DependsOn": [
+    "payoutsvpcVPCGW42875521"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet2/DefaultRoute"
+   }
+  },
+  "payoutsvpcPublicSubnet2EIP356D8AD9": {
+   "Type": "AWS::EC2::EIP",
+   "Properties": {
+    "Domain": "vpc",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet2"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet2/EIP"
+   }
+  },
+  "payoutsvpcPublicSubnet2NATGateway92C28338": {
+   "Type": "AWS::EC2::NatGateway",
+   "Properties": {
+    "SubnetId": {
+     "Ref": "payoutsvpcPublicSubnet2Subnet53CA5400"
+    },
+    "AllocationId": {
+     "Fn::GetAtt": [
+      "payoutsvpcPublicSubnet2EIP356D8AD9",
+      "AllocationId"
+     ]
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet2"
+     }
+    ]
+   },
+   "DependsOn": [
+    "payoutsvpcPublicSubnet2DefaultRouteD1190078",
+    "payoutsvpcPublicSubnet2RouteTableAssociation3E427A03"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet2/NATGateway"
+   }
+  },
+  "payoutsvpcPublicSubnet3Subnet79C55495": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "AvailabilityZone": "us-east-1c",
+    "CidrBlock": "10.0.64.0/19",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet3"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet3/Subnet"
+   }
+  },
+  "payoutsvpcPublicSubnet3RouteTableA82738FA": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet3"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet3/RouteTable"
+   }
+  },
+  "payoutsvpcPublicSubnet3RouteTableAssociationADD65678": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPublicSubnet3RouteTableA82738FA"
+    },
+    "SubnetId": {
+     "Ref": "payoutsvpcPublicSubnet3Subnet79C55495"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet3/RouteTableAssociation"
+   }
+  },
+  "payoutsvpcPublicSubnet3DefaultRouteEACA2BD8": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPublicSubnet3RouteTableA82738FA"
+    },
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "payoutsvpcIGW7574D167"
+    }
+   },
+   "DependsOn": [
+    "payoutsvpcVPCGW42875521"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet3/DefaultRoute"
+   }
+  },
+  "payoutsvpcPublicSubnet3EIP97709B4E": {
+   "Type": "AWS::EC2::EIP",
+   "Properties": {
+    "Domain": "vpc",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet3"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet3/EIP"
+   }
+  },
+  "payoutsvpcPublicSubnet3NATGatewayBD052E5D": {
+   "Type": "AWS::EC2::NatGateway",
+   "Properties": {
+    "SubnetId": {
+     "Ref": "payoutsvpcPublicSubnet3Subnet79C55495"
+    },
+    "AllocationId": {
+     "Fn::GetAtt": [
+      "payoutsvpcPublicSubnet3EIP97709B4E",
+      "AllocationId"
+     ]
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PublicSubnet3"
+     }
+    ]
+   },
+   "DependsOn": [
+    "payoutsvpcPublicSubnet3DefaultRouteEACA2BD8",
+    "payoutsvpcPublicSubnet3RouteTableAssociationADD65678"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PublicSubnet3/NATGateway"
+   }
+  },
+  "payoutsvpcPrivateSubnet1SubnetA7DA2734": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "AvailabilityZone": "us-east-1a",
+    "CidrBlock": "10.0.96.0/19",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PrivateSubnet1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet1/Subnet"
+   }
+  },
+  "payoutsvpcPrivateSubnet1RouteTableF3483971": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PrivateSubnet1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet1/RouteTable"
+   }
+  },
+  "payoutsvpcPrivateSubnet1RouteTableAssociation97B92147": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPrivateSubnet1RouteTableF3483971"
+    },
+    "SubnetId": {
+     "Ref": "payoutsvpcPrivateSubnet1SubnetA7DA2734"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet1/RouteTableAssociation"
+   }
+  },
+  "payoutsvpcPrivateSubnet1DefaultRouteB651E02B": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPrivateSubnet1RouteTableF3483971"
+    },
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "payoutsvpcPublicSubnet1NATGatewayAE76B080"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet1/DefaultRoute"
+   }
+  },
+  "payoutsvpcPrivateSubnet2Subnet5530EC0C": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "AvailabilityZone": "us-east-1b",
+    "CidrBlock": "10.0.128.0/19",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PrivateSubnet2"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet2/Subnet"
+   }
+  },
+  "payoutsvpcPrivateSubnet2RouteTableA79B980E": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PrivateSubnet2"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet2/RouteTable"
+   }
+  },
+  "payoutsvpcPrivateSubnet2RouteTableAssociation8E566390": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPrivateSubnet2RouteTableA79B980E"
+    },
+    "SubnetId": {
+     "Ref": "payoutsvpcPrivateSubnet2Subnet5530EC0C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet2/RouteTableAssociation"
+   }
+  },
+  "payoutsvpcPrivateSubnet2DefaultRoute37B5CB88": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPrivateSubnet2RouteTableA79B980E"
+    },
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "payoutsvpcPublicSubnet2NATGateway92C28338"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet2/DefaultRoute"
+   }
+  },
+  "payoutsvpcPrivateSubnet3Subnet97A82956": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "AvailabilityZone": "us-east-1c",
+    "CidrBlock": "10.0.160.0/19",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PrivateSubnet3"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet3/Subnet"
+   }
+  },
+  "payoutsvpcPrivateSubnet3RouteTable3A67FCDC": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc/PrivateSubnet3"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet3/RouteTable"
+   }
+  },
+  "payoutsvpcPrivateSubnet3RouteTableAssociation15E5ED17": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPrivateSubnet3RouteTable3A67FCDC"
+    },
+    "SubnetId": {
+     "Ref": "payoutsvpcPrivateSubnet3Subnet97A82956"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet3/RouteTableAssociation"
+   }
+  },
+  "payoutsvpcPrivateSubnet3DefaultRoute1F9EAACF": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "payoutsvpcPrivateSubnet3RouteTable3A67FCDC"
+    },
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "payoutsvpcPublicSubnet3NATGatewayBD052E5D"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/PrivateSubnet3/DefaultRoute"
+   }
+  },
+  "payoutsvpcIGW7574D167": {
+   "Type": "AWS::EC2::InternetGateway",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "vpc-config/payouts-vpc"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/IGW"
+   }
+  },
+  "payoutsvpcVPCGW42875521": {
+   "Type": "AWS::EC2::VPCGatewayAttachment",
+   "Properties": {
+    "VpcId": {
+     "Ref": "payoutsvpcE48F4DA6"
+    },
+    "InternetGatewayId": {
+     "Ref": "payoutsvpcIGW7574D167"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/payouts-vpc/VPCGW"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/0WOQQuCQBCFf4v3dUtB6CoSYYcQDa8ybhNt6hrurBLif2/NzNP75uPxGJ8HAfccGLQrbpVby5KPGYGomFUFCp+P+Uuw6K7yJGKJKWspMlMqpNltlLaG8ApljZvfXKh1KySQbNW/PMMxTua4AJ2AcIA3SzrZW9yGY0XYWV4Lyye/KyT76qNBRRNLUbemE9/dlSd2hh52Hj/wfeH7nvPUUrqdUSQb5OmSHzqtN3kDAQAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "vpc-config/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "ExportsOutputRefpayoutsvpcPublicSubnet1SubnetE75E46D39A31C83D": {
+   "Value": {
+    "Ref": "payoutsvpcPublicSubnet1SubnetE75E46D3"
+   },
+   "Export": {
+    "Name": "vpc-config:ExportsOutputRefpayoutsvpcPublicSubnet1SubnetE75E46D39A31C83D"
+   }
+  },
+  "ExportsOutputRefpayoutsvpcPublicSubnet2Subnet53CA540095E54E80": {
+   "Value": {
+    "Ref": "payoutsvpcPublicSubnet2Subnet53CA5400"
+   },
+   "Export": {
+    "Name": "vpc-config:ExportsOutputRefpayoutsvpcPublicSubnet2Subnet53CA540095E54E80"
+   }
+  },
+  "ExportsOutputRefpayoutsvpcPublicSubnet3Subnet79C5549538E3794B": {
+   "Value": {
+    "Ref": "payoutsvpcPublicSubnet3Subnet79C55495"
+   },
+   "Export": {
+    "Name": "vpc-config:ExportsOutputRefpayoutsvpcPublicSubnet3Subnet79C5549538E3794B"
+   }
+  },
+  "ExportsOutputRefpayoutsvpcE48F4DA658D5F7EA": {
+   "Value": {
+    "Ref": "payoutsvpcE48F4DA6"
+   },
+   "Export": {
+    "Name": "vpc-config:ExportsOutputRefpayoutsvpcE48F4DA658D5F7EA"
+   }
+  },
+  "ExportsOutputRefpayoutsvpcPrivateSubnet1SubnetA7DA27340A2BA944": {
+   "Value": {
+    "Ref": "payoutsvpcPrivateSubnet1SubnetA7DA2734"
+   },
+   "Export": {
+    "Name": "vpc-config:ExportsOutputRefpayoutsvpcPrivateSubnet1SubnetA7DA27340A2BA944"
+   }
+  },
+  "ExportsOutputRefpayoutsvpcPrivateSubnet2Subnet5530EC0C6DB8CAAA": {
+   "Value": {
+    "Ref": "payoutsvpcPrivateSubnet2Subnet5530EC0C"
+   },
+   "Export": {
+    "Name": "vpc-config:ExportsOutputRefpayoutsvpcPrivateSubnet2Subnet5530EC0C6DB8CAAA"
+   }
+  },
+  "ExportsOutputRefpayoutsvpcPrivateSubnet3Subnet97A82956BADD2168": {
+   "Value": {
+    "Ref": "payoutsvpcPrivateSubnet3Subnet97A82956"
+   },
+   "Export": {
+    "Name": "vpc-config:ExportsOutputRefpayoutsvpcPrivateSubnet3Subnet97A82956BADD2168"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

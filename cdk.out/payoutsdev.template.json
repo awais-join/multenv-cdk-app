@@ -1,0 +1,128 @@
+{
+ "Resources": {
+  "payoutssecuritygroupB66EE6F4": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "payoutsdev/payouts-security-group",
+    "GroupName": "database-launch-wizard-1",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "from 0.0.0.0/0:3306",
+      "FromPort": 3306,
+      "IpProtocol": "tcp",
+      "ToPort": 3306
+     }
+    ],
+    "VpcId": {
+     "Fn::ImportValue": "vpc-config:ExportsOutputRefpayoutsvpcE48F4DA658D5F7EA"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "payoutsdev/payouts-security-group/Resource"
+   }
+  },
+  "payoutsdevSubnetGroup45732EC8": {
+   "Type": "AWS::RDS::DBSubnetGroup",
+   "Properties": {
+    "DBSubnetGroupDescription": "Subnet group for payoutsdev database",
+    "SubnetIds": [
+     "subnet-6fb72b33",
+     "subnet-2f8d1e48",
+     "subnet-febc22d0",
+     "subnet-86e6c5cc",
+     "subnet-1f47e021",
+     "subnet-324f1a3d"
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "payoutsdev/payoutsdev/SubnetGroup/Default"
+   }
+  },
+  "payoutsdev5A726A9D": {
+   "Type": "AWS::RDS::DBInstance",
+   "Properties": {
+    "AllocatedStorage": "50",
+    "AvailabilityZone": "us-east-1a",
+    "BackupRetentionPeriod": 0,
+    "CopyTagsToSnapshot": true,
+    "DBInstanceClass": "db.t2.small",
+    "DBInstanceIdentifier": "payoutsdev",
+    "DBName": "payoutsdev",
+    "DBSubnetGroupName": {
+     "Ref": "payoutsdevSubnetGroup45732EC8"
+    },
+    "Engine": "mysql",
+    "EngineVersion": "8.0",
+    "MasterUsername": "root",
+    "MasterUserPassword": "ayanali78941",
+    "MultiAZ": false,
+    "PubliclyAccessible": true,
+    "StorageType": "gp2",
+    "VPCSecurityGroups": [
+     {
+      "Fn::GetAtt": [
+       "payoutssecuritygroupB66EE6F4",
+       "GroupId"
+      ]
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "payoutsdev/payoutsdev/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/2WLwQrCMBBEv6X3dDWBgmctiB7bDyibdIVYTUs2USTk3w1IBfE0M29mFDQNyAqfXJtxqm9WQ+oDmkkUNCQyqmQy0dvwOvo5LuJwcT8gCz8ypBYDamQ6OQ7oDIk+akfh+2n3f2Cd5iw64jn68irF6rM44wM3EnawHZSS1ZWtrX10wd4Juo++Aa9rfsnAAAAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "payoutsdev/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

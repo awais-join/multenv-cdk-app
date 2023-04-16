@@ -1,0 +1,812 @@
+{
+  "version": "22.0.0",
+  "artifacts": {
+    "vpc-config.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "vpc-config.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "vpc-config": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://185686578002/us-east-1",
+      "properties": {
+        "templateFile": "vpc-config.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-deploy-role-185686578002-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-cfn-exec-role-185686578002-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-185686578002-us-east-1/5738e94c017b6b943d8b78e184bc6986de7b2745d8e05c33440f242267f6b7dd.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "vpc-config.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-lookup-role-185686578002-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "vpc-config.assets"
+      ],
+      "metadata": {
+        "/vpc-config/payouts-vpc/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcE48F4DA6"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet1SubnetE75E46D3"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet1RouteTable3D4793C1"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet1RouteTableAssociationB3ADC8AB"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet1DefaultRoute6BB0DFC8"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet1EIPB043CD83"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet1NATGatewayAE76B080"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet2Subnet53CA5400"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet2RouteTable403BF239"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet2RouteTableAssociation3E427A03"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet2DefaultRouteD1190078"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet2/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet2EIP356D8AD9"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet2/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet2NATGateway92C28338"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet3/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet3Subnet79C55495"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet3/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet3RouteTableA82738FA"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet3/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet3RouteTableAssociationADD65678"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet3/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet3DefaultRouteEACA2BD8"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet3/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet3EIP97709B4E"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PublicSubnet3/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPublicSubnet3NATGatewayBD052E5D"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet1SubnetA7DA2734"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet1RouteTableF3483971"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet1RouteTableAssociation97B92147"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet1DefaultRouteB651E02B"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet2Subnet5530EC0C"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet2RouteTableA79B980E"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet2RouteTableAssociation8E566390"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet2DefaultRoute37B5CB88"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet3/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet3Subnet97A82956"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet3/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet3RouteTable3A67FCDC"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet3/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet3RouteTableAssociation15E5ED17"
+          }
+        ],
+        "/vpc-config/payouts-vpc/PrivateSubnet3/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcPrivateSubnet3DefaultRoute1F9EAACF"
+          }
+        ],
+        "/vpc-config/payouts-vpc/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcIGW7574D167"
+          }
+        ],
+        "/vpc-config/payouts-vpc/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsvpcVPCGW42875521"
+          }
+        ],
+        "/vpc-config/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/vpc-config/Exports/Output{\"Ref\":\"payoutsvpcPublicSubnet1SubnetE75E46D3\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefpayoutsvpcPublicSubnet1SubnetE75E46D39A31C83D"
+          }
+        ],
+        "/vpc-config/Exports/Output{\"Ref\":\"payoutsvpcPublicSubnet2Subnet53CA5400\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefpayoutsvpcPublicSubnet2Subnet53CA540095E54E80"
+          }
+        ],
+        "/vpc-config/Exports/Output{\"Ref\":\"payoutsvpcPublicSubnet3Subnet79C55495\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefpayoutsvpcPublicSubnet3Subnet79C5549538E3794B"
+          }
+        ],
+        "/vpc-config/Exports/Output{\"Ref\":\"payoutsvpcE48F4DA6\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefpayoutsvpcE48F4DA658D5F7EA"
+          }
+        ],
+        "/vpc-config/Exports/Output{\"Ref\":\"payoutsvpcPrivateSubnet1SubnetA7DA2734\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefpayoutsvpcPrivateSubnet1SubnetA7DA27340A2BA944"
+          }
+        ],
+        "/vpc-config/Exports/Output{\"Ref\":\"payoutsvpcPrivateSubnet2Subnet5530EC0C\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefpayoutsvpcPrivateSubnet2Subnet5530EC0C6DB8CAAA"
+          }
+        ],
+        "/vpc-config/Exports/Output{\"Ref\":\"payoutsvpcPrivateSubnet3Subnet97A82956\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefpayoutsvpcPrivateSubnet3Subnet97A82956BADD2168"
+          }
+        ],
+        "/vpc-config/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/vpc-config/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "vpc-config"
+    },
+    "payouts-dev.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "payouts-dev.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "payouts-dev": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://185686578002/us-east-1",
+      "properties": {
+        "templateFile": "payouts-dev.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-deploy-role-185686578002-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-cfn-exec-role-185686578002-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-185686578002-us-east-1/15a65de062f6bfe18ffa5acc7873916db09302bb3094b32b76d43d3e5b5763ae.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "payouts-dev.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-lookup-role-185686578002-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "payouts-dev.assets"
+      ],
+      "metadata": {
+        "/payouts-dev/payouts-security-group/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutssecuritygroupB66EE6F4"
+          }
+        ],
+        "/payouts-dev/payouts-dev/SubnetGroup/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsdevSubnetGroupBA44CEF2"
+          }
+        ],
+        "/payouts-dev/payouts-dev/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsdev1CF632A1"
+          }
+        ],
+        "/payouts-dev/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/payouts-dev/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/payouts-dev/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "payouts-dev"
+    },
+    "build-deploy-stack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "build-deploy-stack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "build-deploy-stack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://185686578002/us-east-1",
+      "properties": {
+        "templateFile": "build-deploy-stack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-deploy-role-185686578002-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-cfn-exec-role-185686578002-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-185686578002-us-east-1/84432846b2a605853820b1bb9a7d5514ff8468fc24cb96ee7e218405037dbf5f.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "build-deploy-stack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-lookup-role-185686578002-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "vpc-config",
+        "build-deploy-stack.assets"
+      ],
+      "metadata": {
+        "/build-deploy-stack/ecrrepository/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ecrrepository9E7D169C"
+          }
+        ],
+        "/build-deploy-stack/pipelineproject/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineprojectRole43226DDC"
+          }
+        ],
+        "/build-deploy-stack/pipelineproject/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineprojectRoleDefaultPolicy5C0C0CF8"
+          }
+        ],
+        "/build-deploy-stack/pipelineproject/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineprojectD7BAE33F"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/LB/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceLB20EA04B0"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/LB/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceLBSecurityGroup2C6FBC51"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/LB/SecurityGroup/to builddeploystackloadbalancedfargateserviceServiceSecurityGroup2DECA8D3:8080": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceLBSecurityGrouptobuilddeploystackloadbalancedfargateserviceServiceSecurityGroup2DECA8D380807237F32A"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/LB/PublicListener/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceLBPublicListener37BFDDEA"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/LB/PublicListener/ECSGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceLBPublicListenerECSGroup5D504C96"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/LoadBalancerDNS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceLoadBalancerDNSB327FA97"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/ServiceURL": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceServiceURL224ECFBD"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/TaskDef/TaskRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceTaskDefTaskRoleFC5D2F76"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/TaskDef/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceTaskDef777E0150"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/TaskDef/payouts-backend/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceTaskDefpayoutsbackendLogGroupE5D95FF6"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/TaskDef/ExecutionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceTaskDefExecutionRoleA34DE4A0"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/TaskDef/ExecutionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceTaskDefExecutionRoleDefaultPolicyCE90463C"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/Service/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceService4607AA72"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/Service/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceServiceSecurityGroupBB08EAFE"
+          }
+        ],
+        "/build-deploy-stack/loadbalancedfargateservice/Service/SecurityGroup/from builddeploystackloadbalancedfargateserviceLBSecurityGroupCF54DCC9:8080": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "loadbalancedfargateserviceServiceSecurityGroupfrombuilddeploystackloadbalancedfargateserviceLBSecurityGroupCF54DCC980803522104C"
+          }
+        ],
+        "/build-deploy-stack/EcsDefaultClusterMnL3mNNYNpayouts-vpc/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EcsDefaultClusterMnL3mNNYNpayoutsvpc0DF2780D"
+          }
+        ],
+        "/build-deploy-stack/pipeline/ArtifactsBucketEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineArtifactsBucketEncryptionKey16620CDF"
+          }
+        ],
+        "/build-deploy-stack/pipeline/ArtifactsBucketEncryptionKeyAlias/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineArtifactsBucketEncryptionKeyAlias2DB3E5DA"
+          }
+        ],
+        "/build-deploy-stack/pipeline/ArtifactsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineArtifactsBucket7D04D0D2"
+          }
+        ],
+        "/build-deploy-stack/pipeline/ArtifactsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineArtifactsBucketPolicy1FCEB919"
+          }
+        ],
+        "/build-deploy-stack/pipeline/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineRole55399C5D"
+          }
+        ],
+        "/build-deploy-stack/pipeline/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineRoleDefaultPolicy668B05DE"
+          }
+        ],
+        "/build-deploy-stack/pipeline/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineDBECAE49"
+          }
+        ],
+        "/build-deploy-stack/pipeline/Source/github_source/WebhookResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineSourcegithubsourceWebhookResourceB1B8E2FC"
+          }
+        ],
+        "/build-deploy-stack/pipeline/Build/buildpayoutsbackend/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineBuildbuildpayoutsbackendCodePipelineActionRoleFFBCFB89"
+          }
+        ],
+        "/build-deploy-stack/pipeline/Build/buildpayoutsbackend/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineBuildbuildpayoutsbackendCodePipelineActionRoleDefaultPolicy509240DB"
+          }
+        ],
+        "/build-deploy-stack/pipeline/Deploy/ecsdeployaction/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineDeployecsdeployactionCodePipelineActionRoleD72892DA"
+          }
+        ],
+        "/build-deploy-stack/pipeline/Deploy/ecsdeployaction/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineDeployecsdeployactionCodePipelineActionRoleDefaultPolicy944E1082"
+          }
+        ],
+        "/build-deploy-stack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/build-deploy-stack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/build-deploy-stack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "build-deploy-stack"
+    },
+    "build-deploy-frontend-stack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "build-deploy-frontend-stack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "build-deploy-frontend-stack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://185686578002/us-east-1",
+      "properties": {
+        "templateFile": "build-deploy-frontend-stack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-deploy-role-185686578002-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-cfn-exec-role-185686578002-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-185686578002-us-east-1/f137761c804ff5576c28f151cd932e749b90b93aba22db7d6c4783ea56b5414a.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "build-deploy-frontend-stack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::185686578002:role/cdk-hnb659fds-lookup-role-185686578002-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "build-deploy-frontend-stack.assets"
+      ],
+      "metadata": {
+        "/build-deploy-frontend-stack/pipelineProjectFrontend/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineProjectFrontendRoleB7F76F12"
+          }
+        ],
+        "/build-deploy-frontend-stack/pipelineProjectFrontend/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineProjectFrontendRoleDefaultPolicy7031FCCA"
+          }
+        ],
+        "/build-deploy-frontend-stack/pipelineProjectFrontend/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pipelineProjectFrontend741355F3"
+          }
+        ],
+        "/build-deploy-frontend-stack/payouts-frontend/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsfrontendB1948F83"
+          }
+        ],
+        "/build-deploy-frontend-stack/payouts-frontend/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "payoutsfrontendPolicy87FD0F10"
+          }
+        ],
+        "/build-deploy-frontend-stack/SecretWitCloudFront/CFDistribution": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SecretWitCloudFrontCFDistribution66317D44"
+          }
+        ],
+        "/build-deploy-frontend-stack/InvalidateCloudFrontProject/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InvalidateCloudFrontProjectRole1CBF4622"
+          }
+        ],
+        "/build-deploy-frontend-stack/InvalidateCloudFrontProject/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InvalidateCloudFrontProjectRoleDefaultPolicy493941F4"
+          }
+        ],
+        "/build-deploy-frontend-stack/InvalidateCloudFrontProject/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InvalidateCloudFrontProjectC721C303"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/ArtifactsBucketEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineArtifactsBucketEncryptionKey4F9D1EE8"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/ArtifactsBucketEncryptionKeyAlias/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineArtifactsBucketEncryptionKeyAlias32DEAED1"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/ArtifactsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineArtifactsBucket71086C16"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/ArtifactsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineArtifactsBucketPolicy5387C5DE"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineRoleA0D54F2E"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineRoleDefaultPolicyDA92DB0E"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineB0F3910E"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/Source/github_source/WebhookResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineSourcegithubsourceWebhookResource33A5599A"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/Build/buildPayoutsFrontend/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineBuildbuildPayoutsFrontendCodePipelineActionRole811B844B"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/Build/buildPayoutsFrontend/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineBuildbuildPayoutsFrontendCodePipelineActionRoleDefaultPolicy6572744A"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/Deploy/payout-frontend-deploy/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineDeploypayoutfrontenddeployCodePipelineActionRoleA5661978"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/Deploy/payout-frontend-deploy/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineDeploypayoutfrontenddeployCodePipelineActionRoleDefaultPolicyDBCA2CC9"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/InvalidateCache/invalidateCache/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineInvalidateCacheinvalidateCacheCodePipelineActionRole54767CD8"
+          }
+        ],
+        "/build-deploy-frontend-stack/frontend-pipeline/InvalidateCache/invalidateCache/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "frontendpipelineInvalidateCacheinvalidateCacheCodePipelineActionRoleDefaultPolicy3FD69787"
+          }
+        ],
+        "/build-deploy-frontend-stack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/build-deploy-frontend-stack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/build-deploy-frontend-stack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "build-deploy-frontend-stack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

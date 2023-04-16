@@ -1,0 +1,12 @@
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/infra/makemebuddy/CodePipelineAndS3DeployUIConfig.java
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/infra/makemebuddy/InfraAsCodeApp.java
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/app/lambda/AccountInfoLambda.java
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/infra/mulitenv/stack/PipelineAppStage.java
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/infra/mulitenv/stack/PipelineStack.java
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/infra/makemebuddy/S3ForReportsConfig.java
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/infra/mulitenv/stack/LambdaStack.java
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/infra/mulitenv/Pipeline.java
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/infra/makemebuddy/EnvironmentData.java
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/infra/makemebuddy/dynamodb/DynamoDBConfig.java
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/infra/makemebuddy/VpcConfig.java
+/Users/awaistariq/2023-upwork/multi-env-cdk-demo/src/main/java/infra/makemebuddy/CodePipelineAndECSDeployAPIConfig.java
