@@ -15,5 +15,7 @@ public class MultiEnvPipeline {
                 .build();
 
         new PipelineStack(app, "PipelineStack", StackProps.builder().env(toolingEnvironment).build());
+
+        app.synth();
     }
 }
