@@ -9,7 +9,7 @@ public class PipelineAppStage extends Stage {
     public PipelineAppStage(Construct scope, String id, final StageProps props) {
         super(scope, id, props);
 
-        LambdaStack lambdaStack = new LambdaStack(this, "LambdaStack", null);
+        LambdaStack lambdaStack = new LambdaStack(scope, "LambdaStack", null);
 
     }
 }

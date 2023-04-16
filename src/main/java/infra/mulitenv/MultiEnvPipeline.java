@@ -5,7 +5,7 @@ import software.amazon.awscdk.App;
 import software.amazon.awscdk.Environment;
 import software.amazon.awscdk.StackProps;
 
-public class Pipeline {
+public class MultiEnvPipeline {
     public static void main(final String[] args) {
         App app = new App();
 
